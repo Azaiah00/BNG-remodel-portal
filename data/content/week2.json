@@ -1,0 +1,62 @@
+{
+  "weekId": "week-2",
+  "dates": "Mar 09 - Mar 15, 2026",
+  "status": "Ready",
+  "content": [
+    {
+      "id": "video-ad-1",
+      "type": "video_ad",
+      "aspectRatio": "9/16",
+      "title": "Video Ad - Kitchen Remodel CTA",
+      "thumbnail": "https://placehold.co/400x710/1e3a5f/ffffff?text=Video+Ad",
+      "assetUrl": null,
+      "platform": "Meta Ads",
+      "caption": "Your dream kitchen is one quote away. BNG Remodel—Nashville's trusted remodeling contractor. Free consultation. Get started today.",
+      "hashtags": "#kitchenremodel #nashville #bnremodel #freequote",
+      "instructions": [
+        {
+          "platform": "Meta Ads",
+          "caption": "Your dream kitchen is one quote away. BNG Remodel—Nashville's trusted remodeling contractor. Free consultation. Get started today.",
+          "hashtags": "#kitchenremodel #nashville #bnremodel #freequote",
+          "postingTime": "Best: 4 PM - 8 PM"
+        }
+      ]
+    },
+    {
+      "id": "ig-2",
+      "type": "instagram_post",
+      "aspectRatio": "3/4",
+      "title": "Flooring Installation - Brentwood",
+      "thumbnail": "https://placehold.co/600x800/1e3a5f/ffffff?text=Flooring",
+      "platform": "Instagram",
+      "caption": "Luxury vinyl plank installation in Brentwood! BNG Remodel offers flooring for every style and budget. Serving Nashville, Franklin, Brentwood & all of Middle TN. Free quote!",
+      "hashtags": "#brentwoodremodel #flooring #bnremodel #nashville #luxuryvinyl #homeremodel",
+      "instructions": [
+        {
+          "platform": "Instagram",
+          "caption": "Luxury vinyl plank installation in Brentwood! BNG Remodel offers flooring for every style and budget. Serving Nashville, Franklin, Brentwood & all of Middle TN. Free quote!",
+          "hashtags": "#brentwoodremodel #flooring #bnremodel #nashville #luxuryvinyl #homeremodel",
+          "postingTime": "1:00 PM"
+        }
+      ]
+    },
+    {
+      "id": "fb-2",
+      "type": "facebook_post",
+      "aspectRatio": "3/4",
+      "title": "Women-Led Remodeling - 100% Satisfaction",
+      "thumbnail": "https://placehold.co/600x800/c41e3a/ffffff?text=100%25+Satisfaction",
+      "platform": "Facebook",
+      "caption": "BNG Remodel is a women-led company with a 100% satisfaction guarantee. Kitchen, bathroom, flooring—we do it all. Licensed, bonded, insured. Free quote: bngremodel.com",
+      "hashtags": "#womenled #nashvilleremodel #bnremodel #satisfactionguarantee",
+      "instructions": [
+        {
+          "platform": "Facebook",
+          "caption": "BNG Remodel is a women-led company with a 100% satisfaction guarantee. Kitchen, bathroom, flooring—we do it all. Licensed, bonded, insured. Free quote: bngremodel.com",
+          "hashtags": "#womenled #nashvilleremodel #bnremodel #satisfactionguarantee",
+          "postingTime": "8:00 AM"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* BNG Remodel theme variables - dark blue primary, red accent */
+@theme {
+  --color-bng-blue: #1e3a5f;
+  --color-bng-red: #c41e3a;
+  --color-deep-black: #000000;
+  --color-zinc-900: #18181b;
+  --color-zinc-800: #27272a;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-oswald);
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbar: black track, BNG red thumb */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #c41e3a #0a0a0a;
+}
+html::-webkit-scrollbar {
+  width: 14px !important;
+}
+html::-webkit-scrollbar-track {
+  background: #000000 !important;
+}
+html::-webkit-scrollbar-thumb {
+  background: #c41e3a !important;
+  border: 3px solid #000000 !important;
+  border-radius: 0 !important;
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: #dc2626 !important;
+}
+html::-webkit-scrollbar-thumb:active {
+  background: #b91c1c !important;
+}
+html::-webkit-scrollbar-button,
+html::-webkit-scrollbar-corner {
+  display: none !important;
+  background: #000000 !important;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #c41e3a #0a0a0a;
+}
+body::-webkit-scrollbar {
+  width: 14px !important;
+}
+body::-webkit-scrollbar-track {
+  background: #000000 !important;
+}
+body::-webkit-scrollbar-thumb {
+  background: #c41e3a !important;
+  border: 3px solid #000000 !important;
+  border-radius: 0 !important;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #dc2626 !important;
+}
+body::-webkit-scrollbar-button {
+  display: none !important;
+}
+*::-webkit-scrollbar {
+  width: 14px !important;
+  height: 14px !important;
+}
+*::-webkit-scrollbar-track {
+  background: #000000 !important;
+}
+*::-webkit-scrollbar-thumb {
+  background: #c41e3a !important;
+  border: 3px solid #000000 !important;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #dc2626 !important;
+}
+*::-webkit-scrollbar-button {
+  display: none !important;
+}
+
+/* Thinner scrollbar on small screens */
+@media (max-width: 640px) {
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #ffffff, #c41e3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
