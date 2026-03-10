@@ -27,7 +27,7 @@ const steps = [
     icon: LayoutTemplate,
     title: "Cabinets Installed",
     copy: "New cabinetry transforms the entire feel of a room. We showcase that moment—the clean lines, the modern hardware—so homeowners can instantly envision their own upgrade.",
-    image: "/assets/product-placement-fridge-installed.png",
+    image: "/assets/product-placements/cabnets-installed.png",
     label: "Cabinets In",
   },
   {
@@ -36,7 +36,7 @@ const steps = [
     icon: Refrigerator,
     title: "Fridge In Place",
     copy: "A premium refrigerator isn't just an appliance—it's a statement. We highlight that installation moment, making your clients' finished spaces feel real and achievable.",
-    image: "/assets/product-placement-stove-installed.png",
+    image: "/assets/product-placement-fridge-installed.png",
     label: "Fridge Installed",
   },
   {
@@ -45,7 +45,7 @@ const steps = [
     icon: Flame,
     title: "Stove & Cooktop",
     copy: "The heart of the kitchen. We capture that sleek new range—the cooktop, the oven, the finish—so your prospects see exactly what BNG Remodel delivers.",
-    image: "/assets/product-placement-counter-top-installed.png",
+    image: "/assets/product-placement-stove-installed.png",
     label: "Stove Installed",
   },
   {

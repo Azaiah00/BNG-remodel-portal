@@ -122,15 +122,9 @@ export default function Services() {
           <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6 sm:mb-8 uppercase tracking-tighter">
             Let&apos;s Partner
           </h2>
-          <p className="text-white/90 text-lg sm:text-xl mb-8 font-light max-w-2xl mx-auto">
+          <p className="text-white/90 text-lg sm:text-xl font-light max-w-2xl mx-auto">
             We create the content that connects Nashville homeowners with BNG&apos;s trusted remodeling services. Ready to grow your social presence and fill your pipeline?
           </p>
-          <a
-            href="mailto:hello@couturehouse.co?subject=BNG%20Remodel%20-%20Let's%20Partner"
-            className="inline-block px-8 py-4 bg-white text-[var(--color-bng-red)] font-bold uppercase tracking-widest hover:bg-zinc-100 transition-colors"
-          >
-            Schedule a Call
-          </a>
         </div>
       </motion.div>
 
