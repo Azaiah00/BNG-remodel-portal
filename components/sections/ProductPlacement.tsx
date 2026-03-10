@@ -59,11 +59,12 @@ const steps = [
   },
 ];
 
-// Raw product thumbnails: individual items we place (countertop uses the former step-5 image)
+// Raw product thumbnails: individual items we place
 const rawProducts = [
   { id: "fridge", src: "/assets/product-photo-fridge.png", label: "Fridge", description: "Stainless steel refrigerator" },
   { id: "stove", src: "/assets/product-photo-stove.png", label: "Stove", description: "White stove with black cooktop" },
-  { id: "countertop", src: "/assets/product-placement-counters.jpg", label: "Countertop", description: "Marble countertop with sink" },
+  { id: "cabinets", src: "/assets/product-placement-cabinets-shot.png", label: "Cabinets", description: "Black shaker cabinets with marble countertops" },
+  { id: "countertop", src: "/assets/counter-tops.webp", label: "Countertop", description: "Countertops" },
 ];
 
 export default function ProductPlacement() {
