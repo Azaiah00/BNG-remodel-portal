@@ -42,12 +42,12 @@ const ImageSlider = ({ beforeImg, afterImg, label }: SliderProps) => {
         onTouchMove={handleDrag}
       >
         {/* After Image (Background) */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-zinc-900">
           <Image
             src={afterImg}
             alt={`${label} After`}
             fill
-            className="object-cover"
+            className="object-contain"
           />
           <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white border border-zinc-700">
             AFTER
@@ -56,14 +56,14 @@ const ImageSlider = ({ beforeImg, afterImg, label }: SliderProps) => {
 
         {/* Before Image (Foreground, Clipped) */}
         <div
-          className="absolute inset-0 z-10"
+          className="absolute inset-0 z-10 bg-zinc-900"
           style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
         >
           <Image
             src={beforeImg}
             alt={`${label} Before`}
             fill
-            className="object-cover"
+            className="object-contain"
           />
           <div className="absolute top-4 left-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white border border-zinc-700">
             BEFORE

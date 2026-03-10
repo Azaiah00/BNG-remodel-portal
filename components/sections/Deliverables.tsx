@@ -23,17 +23,17 @@ interface DeliverableItem {
   downloadAssets: DownloadAsset[];
 }
 
-// BNG-specific deliverables: ad creatives, Reels thumbnails, before/after imagery
+// BNG-specific deliverables: flyers, ad creatives, Reels thumbnails, before/after imagery
 const deliverables: DeliverableItem[] = [
   {
     id: 1,
-    title: "Instagram Feed Ad",
-    subtitle: "Kitchen Remodel Promo",
-    type: "Marketing",
-    image: "https://placehold.co/600x600/1e3a5f/ffffff?text=IG+Ad",
+    title: "Dated to Sophisticated",
+    subtitle: "Bathroom Before/After Flyer",
+    type: "Flyer",
+    image: "/assets/flyer-bathroom-dated-to-sophisticated-1.png",
     colSpan: "md:col-span-2 md:row-span-2",
     downloadAssets: [
-      { url: "https://placehold.co/600x600/1e3a5f/ffffff?text=IG+Ad", label: "Instagram Ad" },
+      { url: "/assets/flyer-bathroom-dated-to-sophisticated-1.png", label: "Bathroom Flyer (PNG)" },
     ],
   },
   {
@@ -71,13 +71,13 @@ const deliverables: DeliverableItem[] = [
   },
   {
     id: 5,
-    title: "Before/After Post",
-    subtitle: "Kitchen Transformation",
-    type: "Content",
-    image: "https://placehold.co/600x400/1e3a5f/ffffff?text=Before+After",
+    title: "Dated to Sophisticated",
+    subtitle: "Bathroom Remodel Ad Creative",
+    type: "Flyer",
+    image: "/assets/flyer-bathroom-dated-to-sophisticated-2.png",
     colSpan: "md:row-span-2",
     downloadAssets: [
-      { url: "https://placehold.co/600x400/1e3a5f/ffffff?text=Before+After", label: "Before/After Image" },
+      { url: "/assets/flyer-bathroom-dated-to-sophisticated-2.png", label: "Bathroom Ad Creative (PNG)" },
     ],
   },
   {

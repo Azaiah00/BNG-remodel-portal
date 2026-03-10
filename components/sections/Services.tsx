@@ -43,7 +43,7 @@ const services = [
   },
   {
     id: "copy",
-    title: "AI-Assisted Copy",
+    title: "Assisted Copy",
     icon: FileText,
     description: "Captions, hashtags, and ad copy tailored for remodeling. CTAs like Get a free quote, Nashville kitchen remodel, and Middle Tennessee home improvement.",
     features: [

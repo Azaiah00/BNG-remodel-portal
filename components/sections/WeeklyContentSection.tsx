@@ -36,7 +36,8 @@ export interface WeekData {
 
 interface WeeklyContentSectionProps {
   weekData: WeekData;
-  onChangeWeek: () => void;
+  /** When omitted, the "Change Week" button is hidden (e.g. when only one week exists). */
+  onChangeWeek?: () => void;
 }
 
 export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyContentSectionProps) {
@@ -70,12 +71,14 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
             <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white uppercase tracking-tight leading-tight">
               Weekly Content Hub
             </h2>
-            <button
-              onClick={onChangeWeek}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-800 hover:border-[var(--color-bng-red)] text-white text-xs font-bold uppercase tracking-widest transition-all rounded-sm sm:mt-2"
-            >
-              Change Week <ChevronDown className="w-4 h-4" />
-            </button>
+            {onChangeWeek != null && (
+              <button
+                onClick={onChangeWeek}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-800 hover:border-[var(--color-bng-red)] text-white text-xs font-bold uppercase tracking-widest transition-all rounded-sm sm:mt-2"
+              >
+                Change Week <ChevronDown className="w-4 h-4" />
+              </button>
+            )}
           </div>
         </div>
         <div className="w-full md:w-auto md:text-right flex flex-col sm:flex-row md:flex-col gap-2 sm:gap-4 md:gap-1">
