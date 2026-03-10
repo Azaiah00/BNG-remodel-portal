@@ -3,7 +3,6 @@ import ScrollToHash from "@/components/ui/ScrollToHash";
 import Hero from "@/components/sections/Hero";
 import ProductPlacement from "@/components/sections/ProductPlacement";
 import Scope from "@/components/sections/Scope";
-import Deliverables from "@/components/sections/Deliverables";
 import Services from "@/components/sections/Services";
 import BeforeAfterGallery from "@/components/sections/BeforeAfterGallery";
 import ReviewAds from "@/components/sections/ReviewAds";
@@ -28,8 +27,6 @@ export default function Home() {
       <SocialMediaImpact />
 
       <Scope />
-
-      <Deliverables />
 
       <Services />
     </main>

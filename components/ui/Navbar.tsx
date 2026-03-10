@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Scope", target: "scope" },
-  { name: "Deliverables", target: "deliverables" },
   { name: "Services", target: "services" },
 ];
 

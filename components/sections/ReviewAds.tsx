@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Star, Quote, Megaphone, Share2 } from "lucide-react";
+import { Star, Quote, Megaphone, Share2, X } from "lucide-react";
 
 /**
  * ReviewAds section: showcases how Couture House Co. transforms BNG's real
@@ -28,6 +29,8 @@ const ads = [
 ];
 
 export default function ReviewAds() {
+  const [expandedImage, setExpandedImage] = useState<{ src: string; format: string } | null>(null);
+
   return (
     <section
       id="review-ads"
@@ -104,18 +107,21 @@ export default function ReviewAds() {
           </div>
         </motion.div>
 
-        {/* Ad showcase grid */}
+        {/* Ad showcase grid - click to expand */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           {ads.map((ad, index) => (
-            <motion.div
+            <motion.button
               key={ad.id}
+              type="button"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true, margin: "-50px" }}
-              className="group"
+              className="group w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-bng-red)] focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-lg"
+              onClick={() => setExpandedImage({ src: ad.image, format: ad.format })}
+              aria-label={`View ${ad.format} full size`}
             >
-              <div className="relative aspect-[3/4] rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 shadow-xl group-hover:border-zinc-700 transition-colors">
+              <div className="relative aspect-[3/4] rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 shadow-xl group-hover:border-zinc-700 transition-colors cursor-pointer">
                 <Image
                   src={ad.image}
                   alt={`BNG Remodel review ad - ${ad.format}`}
@@ -129,10 +135,55 @@ export default function ReviewAds() {
                     {ad.format}
                   </span>
                 </div>
+                {/* Click hint on hover */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-colors pointer-events-none">
+                  <span className="text-white text-sm font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                    Click to expand
+                  </span>
+                </div>
               </div>
-            </motion.div>
+            </motion.button>
           ))}
         </div>
+
+        {/* Lightbox - expanded image for viewing */}
+        <AnimatePresence>
+          {expandedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4"
+              onClick={() => setExpandedImage(null)}
+            >
+              <button
+                type="button"
+                className="absolute top-4 right-4 p-2 text-white hover:text-zinc-400 transition-colors z-10"
+                onClick={() => setExpandedImage(null)}
+                aria-label="Close"
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <div
+                className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="relative w-full flex-1 min-h-0 flex items-center justify-center">
+                  <Image
+                    src={expandedImage.src}
+                    alt={`BNG Remodel review ad - ${expandedImage.format}`}
+                    width={800}
+                    height={1067}
+                    className="max-w-full max-h-[85vh] w-auto h-auto object-contain"
+                  />
+                </div>
+                <p className="mt-4 text-zinc-500 text-sm font-mono uppercase tracking-widest">
+                  {expandedImage.format}
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Closing CTA */}
         <motion.div

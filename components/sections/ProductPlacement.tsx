@@ -1,14 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Layers, Refrigerator, Flame, LayoutTemplate, Sparkles } from "lucide-react";
+import { Layers, Refrigerator, Flame, LayoutTemplate, Sparkles, X } from "lucide-react";
 
 /**
  * ProductPlacement section: demonstrates how Couture House Co. can visualize
  * a kitchen remodel progression—from raw space to fully staged with cabinets,
  * fridge, stove, and countertops. Uses BNG/product-placement assets.
  */
+// Images shifted up one: raw canvas uses the image that was in Cabinets; each step uses the image from the step below.
 const steps = [
   {
     id: "raw",
@@ -16,7 +18,7 @@ const steps = [
     icon: Layers,
     title: "The Raw Canvas",
     copy: "Every stunning remodel starts somewhere. We take your client's existing space—the dated cabinetry, worn counters, outdated appliances—and turn it into the starting point of a compelling visual story.",
-    image: "/stove-counter-2-before.webp",
+    image: "/assets/product-placement-staging-1.jpg",
     label: "Original Kitchen",
   },
   {
@@ -25,7 +27,7 @@ const steps = [
     icon: LayoutTemplate,
     title: "Cabinets Installed",
     copy: "New cabinetry transforms the entire feel of a room. We showcase that moment—the clean lines, the modern hardware—so homeowners can instantly envision their own upgrade.",
-    image: "/assets/product-placement-staging-1.jpg",
+    image: "/assets/product-placement-fridge-installed.png",
     label: "Cabinets In",
   },
   {
@@ -34,7 +36,7 @@ const steps = [
     icon: Refrigerator,
     title: "Fridge In Place",
     copy: "A premium refrigerator isn't just an appliance—it's a statement. We highlight that installation moment, making your clients' finished spaces feel real and achievable.",
-    image: "/assets/product-placement-fridge-installed.png",
+    image: "/assets/product-placement-stove-installed.png",
     label: "Fridge Installed",
   },
   {
@@ -43,7 +45,7 @@ const steps = [
     icon: Flame,
     title: "Stove & Cooktop",
     copy: "The heart of the kitchen. We capture that sleek new range—the cooktop, the oven, the finish—so your prospects see exactly what BNG Remodel delivers.",
-    image: "/assets/product-placement-stove-installed.png",
+    image: "/assets/product-placement-counter-top-installed.png",
     label: "Stove Installed",
   },
   {
@@ -52,12 +54,20 @@ const steps = [
     icon: Sparkles,
     title: "Countertops & Finish",
     copy: "The final layer. Quartz, marble, or solid surface—we show the complete transformation, from rough to ready. This is the money shot that closes deals.",
-    image: "/assets/product-placement-counter-top-installed.png",
+    image: "/assets/product-placement-counters.jpg",
     label: "Countertops In",
   },
 ];
 
+const rawProducts = [
+  { id: "fridge", src: "/assets/product-photo-fridge.png", label: "Fridge", description: "Stainless steel refrigerator" },
+  { id: "stove", src: "/assets/product-photo-stove.png", label: "Stove", description: "White stove with black cooktop" },
+  { id: "countertop", src: "/assets/product-photo-countertop.png", label: "Countertop", description: "Marble countertop with sink" },
+];
+
 export default function ProductPlacement() {
+  const [expandedProduct, setExpandedProduct] = useState<typeof rawProducts[0] | null>(null);
+
   return (
     <section
       id="product-placement"
@@ -88,6 +98,41 @@ export default function ProductPlacement() {
             fridge, stove, and countertops, we show homeowners exactly what their investment looks like. 
             <strong className="text-white"> This is how BNG Remodel wins trust before the first call.</strong>
           </p>
+        </motion.div>
+
+        {/* Raw product shots at top—click to expand */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <p className="text-zinc-500 text-xs font-mono uppercase tracking-widest mb-6 text-center">
+            Raw Product Shots—Individual Items We Place
+          </p>
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+            {rawProducts.map((product) => (
+              <motion.button
+                key={product.id}
+                type="button"
+                className="flex flex-col items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-bng-red)] focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-lg"
+                onClick={() => setExpandedProduct(product)}
+                aria-label={`View ${product.description} full size`}
+              >
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 flex items-center justify-center p-1 cursor-pointer hover:border-zinc-600 transition-colors">
+                  <Image
+                    src={product.src}
+                    alt={product.description}
+                    width={96}
+                    height={96}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <span className="mt-2 text-zinc-500 text-xs font-mono uppercase tracking-widest">{product.label}</span>
+              </motion.button>
+            ))}
+          </div>
         </motion.div>
 
         {/* Step-by-step timeline */}
@@ -146,57 +191,6 @@ export default function ProductPlacement() {
           })}
         </div>
 
-        {/* Raw product photos—individual products we stage into the visuals above */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-20 pt-16 border-t border-zinc-800"
-        >
-          <p className="text-zinc-500 text-xs font-mono uppercase tracking-widest mb-6 text-center">
-            Raw Product Shots—Individual Items We Place
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 flex items-center justify-center p-1">
-                <Image
-                  src="/assets/product-photo-fridge.png"
-                  alt="Stainless steel refrigerator"
-                  width={96}
-                  height={96}
-                  className="object-contain w-full h-full"
-                />
-              </div>
-              <span className="mt-2 text-zinc-500 text-xs font-mono uppercase tracking-widest">Fridge</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 flex items-center justify-center p-1">
-                <Image
-                  src="/assets/product-photo-stove.png"
-                  alt="White stove with black cooktop"
-                  width={96}
-                  height={96}
-                  className="object-contain w-full h-full"
-                />
-              </div>
-              <span className="mt-2 text-zinc-500 text-xs font-mono uppercase tracking-widest">Stove</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 flex items-center justify-center p-1">
-                <Image
-                  src="/assets/product-photo-countertop.png"
-                  alt="Marble countertop with sink"
-                  width={96}
-                  height={96}
-                  className="object-contain w-full h-full"
-                />
-              </div>
-              <span className="mt-2 text-zinc-500 text-xs font-mono uppercase tracking-widest">Countertop</span>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Closing CTA line */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -211,6 +205,44 @@ export default function ProductPlacement() {
           </p>
         </motion.div>
       </div>
+
+      {/* Lightbox for raw product shot */}
+      <AnimatePresence>
+        {expandedProduct && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4"
+            onClick={() => setExpandedProduct(null)}
+          >
+            <button
+              type="button"
+              className="absolute top-4 right-4 p-2 text-white hover:text-zinc-400 transition-colors z-10"
+              onClick={() => setExpandedProduct(null)}
+              aria-label="Close"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <div
+              className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative w-full flex-1 min-h-0 flex items-center justify-center">
+                <Image
+                  src={expandedProduct.src}
+                  alt={expandedProduct.description}
+                  width={800}
+                  height={800}
+                  className="max-w-full max-h-[85vh] w-auto h-auto object-contain"
+                />
+              </div>
+              <p className="mt-4 text-white font-mono text-sm uppercase tracking-widest">{expandedProduct.label}</p>
+              <p className="mt-1 text-zinc-500 text-sm">{expandedProduct.description}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
