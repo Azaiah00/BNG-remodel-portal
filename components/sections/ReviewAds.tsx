@@ -26,6 +26,11 @@ const ads = [
     image: "/assets/review-ad-3.png",
     format: "Digital Ad Format",
   },
+  {
+    id: "ad-4",
+    image: "/assets/review-ad-4.png",
+    format: "Flyer & Print",
+  },
 ];
 
 export default function ReviewAds() {
