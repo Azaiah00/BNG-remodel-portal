@@ -54,15 +54,16 @@ const steps = [
     icon: Sparkles,
     title: "Countertops & Finish",
     copy: "The final layer. Quartz, marble, or solid surface—we show the complete transformation, from rough to ready. This is the money shot that closes deals.",
-    image: "/assets/product-placement-counters.jpg",
+    image: "/assets/product-placement-countertop-finish.png",
     label: "Countertops In",
   },
 ];
 
+// Raw product thumbnails: individual items we place (countertop uses the former step-5 image)
 const rawProducts = [
   { id: "fridge", src: "/assets/product-photo-fridge.png", label: "Fridge", description: "Stainless steel refrigerator" },
   { id: "stove", src: "/assets/product-photo-stove.png", label: "Stove", description: "White stove with black cooktop" },
-  { id: "countertop", src: "/assets/product-photo-countertop.png", label: "Countertop", description: "Marble countertop with sink" },
+  { id: "countertop", src: "/assets/product-placement-counters.jpg", label: "Countertop", description: "Marble countertop with sink" },
 ];
 
 export default function ProductPlacement() {
