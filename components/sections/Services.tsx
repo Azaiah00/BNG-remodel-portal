@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Instagram, Facebook, Video, FileText, ArrowRight } from "lucide-react";
+import PartnershipProposal from "./PartnershipProposal";
 
 /** BNG-specific services: IG/FB content, video ads, AI-assisted copy */
 const services = [
@@ -108,6 +109,8 @@ export default function Services() {
           </motion.div>
         ))}
       </div>
+
+      <PartnershipProposal />
 
       {/* CTA — Couture House inviting BNG to partner */}
       <motion.div
