@@ -1,11 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { CheckCircle2, ArrowRight, LayoutDashboard, Instagram, FileVideo } from "lucide-react";
 
 export default function PartnershipProposal() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+      {/* Centered BNG Logo */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="flex justify-center mb-12 sm:mb-16"
+      >
+        <div className="relative w-48 h-16 sm:w-64 sm:h-20">
+          <Image
+            src="/logo-bng.png"
+            alt="BNG Remodel Logo"
+            fill
+            className="object-contain"
+          />
+        </div>
+      </motion.div>
+
       {/* Proposal Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
