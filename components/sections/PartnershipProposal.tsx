@@ -192,12 +192,13 @@ export default function PartnershipProposal() {
           </p>
           <ul className="space-y-3">
             {[
-              "Up to 4 mock-up projects per month",
+              "Up to 5 mock-up projects per month",
+              "1 video per mock-up (5 videos per month)",
               "Render concepts",
               "Before-and-after transformation concepts",
               "Visual presentation support for customer discussions",
               "Revisions included within the original project scope",
-              "Additional mock-ups billed at $50 each"
+              "Additional mock-ups billed at $50 each (video included with mock-up)"
             ].map((feature, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-zinc-300">
                 <ArrowRight className="w-4 h-4 text-[var(--color-bng-red)] shrink-0 mt-0.5" />
@@ -235,16 +236,20 @@ export default function PartnershipProposal() {
             </thead>
             <tbody className="text-white">
               <tr className="border-b border-zinc-800/50 hover:bg-zinc-900/50 transition-colors">
-                <td className="py-4 px-4">Projects up to $10,000</td>
-                <td className="py-4 px-4 text-right font-bold text-[var(--color-bng-red)]">10%</td>
+                <td className="py-4 px-4">$10,000 – $15,000</td>
+                <td className="py-4 px-4 text-right font-bold text-[var(--color-bng-red)]">3%</td>
               </tr>
               <tr className="border-b border-zinc-800/50 hover:bg-zinc-900/50 transition-colors">
-                <td className="py-4 px-4">Projects from $10,000 to $25,000</td>
+                <td className="py-4 px-4">Over $15,000 – $30,000</td>
+                <td className="py-4 px-4 text-right font-bold text-[var(--color-bng-red)]">4%</td>
+              </tr>
+              <tr className="border-b border-zinc-800/50 hover:bg-zinc-900/50 transition-colors">
+                <td className="py-4 px-4">Over $30,000 – $50,000</td>
                 <td className="py-4 px-4 text-right font-bold text-[var(--color-bng-red)]">5%</td>
               </tr>
               <tr className="hover:bg-zinc-900/50 transition-colors">
-                <td className="py-4 px-4">Projects over $25,000</td>
-                <td className="py-4 px-4 text-right font-bold text-[var(--color-bng-red)]">3%</td>
+                <td className="py-4 px-4">Over $50,000</td>
+                <td className="py-4 px-4 text-right font-bold text-[var(--color-bng-red)]">6%</td>
               </tr>
             </tbody>
           </table>
